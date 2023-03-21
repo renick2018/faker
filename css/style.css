@@ -700,6 +700,7 @@ img {
 	-o-background-size: cover;
 	background-size: cover;
 	font-family: 'Raleway', sans-serif;
+	height: 100vh;
 }
 #aboutme {
 	background: #ededed;

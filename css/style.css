@@ -807,7 +807,8 @@ img {
 }
 
 #home {
-	background: url(https://pic.rmb.bdstatic.com/b9f75b9dc0d814e068c7975e5dc61f37.jpeg) no-repeat center center fixed;
+	/* background: url(https://img2.baidu.com/it/u=3801851304,3010812656&fm=253&fmt=auto&app=120&f=JPEG) no-repeat center center fixed; */
+	background-color: black;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -827,7 +828,7 @@ img {
 }
 
 #contactme {
-	background: url(https://pic.rmb.bdstatic.com/b9f75b9dc0d814e068c7975e5dc61f37.jpeg) no-repeat center center fixed;
+	/* background: url(http://mms2.baidu.com/it/u=4149510213,2039105841&fm=253&app=138&f=JPEG) no-repeat center center fixed; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档列表</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .fcenter {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平居中 */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 20px;
+        }
+        .category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .category li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .category li:hover {
+            background-color: #eaeaea;
+        }
+        .category a {
+            color: #007aff;
+            text-decoration: none;
+        }
+
+        .tags {
+            color: #555;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #eee;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-size: 0.6em;
+            margin-right: 5px;
+        }
+        #searchInput {
+            width: 50%;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; /* 确保宽度包括内填充和边框 */
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #007aff;
+            box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
+        }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>文档列表</h1>
+        <!-- 添加搜索框 -->
+        <div class="fcenter">
+            <input type="text" id="searchInput" placeholder="搜索文件...">
+        </div>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        let allData = {}; // 用于存储原始数据
+
+        function renderList(data) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = ''; // 清空当前内容
+            Object.keys(data).forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.classList.add('category');
+                const h2 = document.createElement('h2');
+                h2.textContent = category;
+                categoryDiv.appendChild(h2);
+                const ul = document.createElement('ul');
+                Object.keys(data[category]).forEach(file => {
+                        const tags = data[category][file]; // 假设这是一个对象，包含名称和标签
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = `previewmd.html?category=${category}&file=${file}&tags=${tags}`;
+                        a.target = '_blank';
+                        a.textContent = file;
+                        li.appendChild(a);
+                        // 添加标签
+                        if (tags && tags.length > 0) {
+                            const tagSpan = document.createElement('span');
+                            tagSpan.className = 'tags';
+                            tags.forEach(tag => {
+                                const span = document.createElement('span');
+                                span.className = 'tag';
+                                span.textContent = tag;
+                                tagSpan.appendChild(span);
+                            });
+                            li.appendChild(tagSpan);
+                        }
+                        ul.appendChild(li);
+                    })
+                categoryDiv.appendChild(ul);
+                contentDiv.appendChild(categoryDiv);
+            });
+        }
+
+        fetch('../dir/docs.json')
+            .then(response => response.json())
+            .then(data => {
+                allData = data; // 保存原始数据
+                renderList(data); // 首次渲染列表
+            });
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredData = Object.keys(allData).reduce((acc, category) => {
+                const files = allData[category];
+                const filteredFiles = Object.keys(files).reduce((fAcc, file) => {
+                    if (file.toLowerCase().includes(searchTerm) || files[file].some(tag => tag.toLowerCase().includes(searchTerm))) {
+                        fAcc[file] = files[file];
+                    }
+                    return fAcc;
+                }, {});
+                if (Object.keys(filteredFiles).length > 0) {
+                    acc[category] = filteredFiles;
+                }
+                return acc;
+            }, {});
+            renderList(filteredData); // 用筛选后的数据重新渲染列表
+        });
+    </script>
+</body>
+</html>
+

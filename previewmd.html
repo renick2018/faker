@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档详情</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 40%;
+            /* max-width: 980px; */
+            margin: 10px auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        .error-message {
+            text-align: center;
+            color: #FF5733;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .error-suggestion {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        a {
+            color: #007aff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script>
+        // 解析查询参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        const fileName = urlParams.get('file');
+        const tags = urlParams.get('tags');
+        const filePath = `../doc/${category}/${fileName}.md`;
+
+        // 设置文档的标题为文件名
+        document.title = fileName; // Assuming you want to remove the .md suffix for the title
+
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('文件未找到');
+                }
+                return response.text();
+            })
+            .then(text => {
+                const content = document.getElementById('content');
+                content.className = 'markdown-body'; // 应用样式
+                content.innerHTML = marked.parse(text);
+            })
+            .catch(error => {
+                const contentDiv = document.getElementById('content');
+                contentDiv.innerHTML = `
+                    <div class="error-message">
+                        抱歉，未找到 "${fileName}"
+                    </div>
+                    <div class="error-suggestion">
+                        请检查URL是否正确，或者尝试搜索您感兴趣的内容。<a href="../doc.html">返回首页</a>
+                        <a href="#" onclick="window.close(); return false;">关闭页面</a>
+                    </div>
+                `;
+            })
+    </script>
+</body>
+</html>

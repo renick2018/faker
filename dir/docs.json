@@ -1,0 +1,6 @@
+{
+    "github": {
+        "sqliteorz": ["android"],
+        "whisper": ["flutter"]
+    }
+}

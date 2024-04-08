@@ -12,7 +12,6 @@
             padding: 0;
         }
         .container {
-            /* max-width: 800px; */
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -38,7 +37,7 @@
             display: block;
             margin: 0 auto;
             border-radius: 10px;
-            width: 1200px;
+            width: 80%; /* 修改图片宽度为100% */
         }
         .feature h2 {
             margin-top: 20px;
@@ -50,9 +49,7 @@
         .button {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 20px;
-            margin-left: 5px;
-            margin-right: 5px;
+            margin: 10px 5px; /* 调整按钮间距 */
             background-color: #007aff;
             color: #fff;
             text-decoration: none;
@@ -65,6 +62,15 @@
         }
         .button.ios {
             text-decoration: line-through;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .button {
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
@@ -81,9 +87,8 @@
         </div>
         
         <span>
-            <!-- <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button">前往下载</a> -->
             <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button">Android</a>
-            <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button ios">ios</a>
+            <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button ios">iOS</a>
             <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button">MacOS</a>
             <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button">Linux</a>
             <a href="https://github.com/lawnvi/whisper/releases" target="_blank" class="button">Windows</a>

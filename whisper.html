@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,45 +12,58 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
             display: flex;
             flex-direction: column;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #333;
             text-align: center;
         }
+
         p {
             color: #666;
             line-height: 1.6;
         }
+
         .feature {
             margin-top: 20px;
         }
+
         .feature img {
             display: block;
             margin: 0 auto;
             border-radius: 10px;
-            width: 80%; /* 修改图片宽度为100% */
+            width: 80%;
+            /* 修改图片宽度为100% */
         }
+
         .feature h2 {
             margin-top: 20px;
         }
+
         .feature p {
             margin-top: 20px;
             text-align: center;
         }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
-            margin: 10px 5px; /* 调整按钮间距 */
+            margin: 10px 5px;
+            /* 调整按钮间距 */
             background-color: #007aff;
             color: #fff;
             text-decoration: none;
@@ -57,9 +71,11 @@
             transition: background-color 0.3s;
             text-align: center;
         }
+
         .button:hover {
             background-color: #0056b3;
         }
+
         .button.ios {
             text-decoration: line-through;
         }
@@ -68,36 +84,49 @@
             .container {
                 padding: 10px;
             }
+
             .button {
                 padding: 8px 16px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="feature">
             <h1>whisper</h1>
             <p>局域网内多平台设备文件互传，悄悄地，很贴心</p>
         </div>
-        
         <div class="feature">
             <img src="https://cdn.jsdelivr.net/gh/lawnvi/whisper@dev/.github/image/img_1.png" alt="软件截图">
             <p>使用flutter开发，支持Android、iOS、Mac、Linux、Windows</p>
         </div>
         <span>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/app-release.apk" class="button">Android</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/app-armeabi-v7a-release.apk" class="button">arm32</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/app-arm64-v8a-release.apk" class="button">arm64</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/app-x86_64-release.apk" class="button">x86_64</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/app-release.apk"
+                class="button">Android</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/app-armeabi-v7a-release.apk"
+                class="button">arm32</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/app-arm64-v8a-release.apk"
+                class="button">arm64</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/app-x86_64-release.apk"
+                class="button">x86_64</a>
         </span>
         <span>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/whisper.dmg" class="button">MacOS</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/whisper-amd64.deb" class="button">Linux deb</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/whisper.x86_64.rpm" class="button">Linux rpm</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/whisper-windows-x86_64.exe" class="button">Windows</a>
-            <a href="https://github.com/lawnvi/whisper/releases/latest/download/app.ipa" class="button ios">iOS</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/whisper.dmg"
+                class="button">MacOS</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/whisper-amd64.deb"
+                class="button">Linux
+                deb</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/whisper.x86_64.rpm"
+                class="button">Linux
+                rpm</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/whisper-windows-x86_64.exe"
+                class="button">Windows</a>
+            <a href="https://mirror.127014.xyz/https://github.com/lawnvi/whisper/releases/latest/download/app.ipa"
+                class="button ios">iOS</a>
         </span>
     </div>
 </body>
+
 </html>

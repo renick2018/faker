@@ -99,8 +99,8 @@ val count = DBOrz.count<DemoModel>("id > 0")
 
 ### 有图有真相
 <div style="display: inline-block;">
-<img  src="https://raw.githubusercontent.com/lawnvi/sqliteorz/main/.github/images/1.jpg" width="22%" />
-<img  src="https://raw.githubusercontent.com/lawnvi/sqliteorz/main/.github/images/2.jpg" width="22%" />
-<img  src="https://raw.githubusercontent.com/lawnvi/sqliteorz/main/.github/images/3.jpg" width="22%"/>
-<img  src="https://raw.githubusercontent.com/lawnvi/sqliteorz/main/.github/images/4.jpg" width="22%">
+<img  src="https://cdn.jsdelivr.net/gh/lawnvi/sqliteorz@main/.github/images/1.jpg" width="22%" />
+<img  src="https://cdn.jsdelivr.net/gh/lawnvi/sqliteorz@main/.github/images/2.jpg" width="22%" />
+<img  src="https://cdn.jsdelivr.net/gh/lawnvi/sqliteorz@main/.github/images/3.jpg" width="22%"/>
+<img  src="https://cdn.jsdelivr.net/gh/lawnvi/sqliteorz@main/.github/images/4.jpg" width="22%">
 </div>

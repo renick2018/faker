@@ -4,6 +4,13 @@ const softwareData = [
         category: "software",
         icon: "images/whisper-icon.png",
         description: "多平台内网传输软件",
+        detailsUrl: "https://whisper.127014.xyz"
+    },
+    {
+        name: "whisper-代理",
+        category: "software",
+        icon: "images/whisper-icon.png",
+        description: "多平台内网传输软件",
         detailsUrl: "whisper.html"
     },
     {

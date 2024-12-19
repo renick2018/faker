@@ -39,7 +39,7 @@ const softwareData = [
         category: "website",
         icon: "images/default.jpeg",
         description: "整理一点文档",
-        detailsUrl: "page/doc.html"
+        detailsUrl: "./page/doc.html"
     },
     {
         name: "代理站",
